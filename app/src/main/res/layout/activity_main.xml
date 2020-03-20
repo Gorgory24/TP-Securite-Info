@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/Coder"
+        android:layout_width="152dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/MesACoder"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.046" />
+
+    <Button
+        android:id="@+id/AtbashButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:text="Atbash"
+        android:onClick="Test"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.139"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MesACoder"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/CésarButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="César"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/AtbashButton"
+        app:layout_constraintTop_toBottomOf="@+id/Coder"
+        app:layout_constraintVertical_bias="0.057" />
+
+    <Button
+        android:id="@+id/VigenèreButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vigenère"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.136"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AtbashButton"
+        app:layout_constraintVertical_bias="0.035" />
+
+    <Button
+        android:id="@+id/PolybeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Polybe"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/VigenèreButton"
+        app:layout_constraintTop_toBottomOf="@+id/CésarButton"
+        app:layout_constraintVertical_bias="0.037" />
+
+    <Button
+        android:id="@+id/PlayfairButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Playfair"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.139"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/VigenèreButton"
+        app:layout_constraintVertical_bias="0.047" />
+
+    <Button
+        android:id="@+id/HillButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hill"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/PlayfairButton"
+        app:layout_constraintTop_toBottomOf="@+id/PolybeButton"
+        app:layout_constraintVertical_bias="0.045" />
+
+    <Button
+        android:id="@+id/ParalléloButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="ParalléloCode"
+        android:text="Parallélo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.145"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PlayfairButton"
+        app:layout_constraintVertical_bias="0.083" />
+
+    <EditText
+        android:id="@+id/clef"
+        android:layout_width="142dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Entrez clef"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toEndOf="@+id/ParalléloButton"
+        app:layout_constraintTop_toBottomOf="@+id/HillButton"
+        app:layout_constraintVertical_bias="0.083" />
+
+    <EditText
+        android:id="@+id/MesACoder"
+        android:layout_width="138dp"
+        android:layout_height="51dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Entrez message"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.164"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.063" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
