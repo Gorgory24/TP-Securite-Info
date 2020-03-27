@@ -1,3 +1,4 @@
+package com.example.tp_scurit_info;
 import java.util.ArrayList;
 
 public class Hill {
@@ -79,7 +80,7 @@ public class Hill {
 			k += 1;
 		}
 		
-		// Cas si rien à été trouvé: (Mais c'est censé ne jamais arrivé à cause du while au dessus)
+		// Cas si rien ï¿½ ï¿½tï¿½ trouvï¿½: (Mais c'est censï¿½ ne jamais arrivï¿½ ï¿½ cause du while au dessus)
 		return -1;
 	}
 	

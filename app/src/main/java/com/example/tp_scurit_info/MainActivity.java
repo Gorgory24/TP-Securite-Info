@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import java.util.*;
@@ -17,6 +16,10 @@ public class MainActivity extends AppCompatActivity {
     TextView MesACoder;
     TextView Resultat;
     TextView Clef;
+    Cesar cesar = new Cesar();
+    Atbash atbash = new Atbash();
+    Hill hill = new Hill();
+    Vigenere vigenere = new Vigenere();
     /*Button AtBashBut;
     Button CésarBut;
     Button VigenèreBut;
@@ -26,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     Button ParalléloBut;*/
 
     ListView Listcrypto;
-    String CodeList[] = {"AtBash", "César", "Vigenère", "Polybe", "PlayFair", "Hill", "Parallélogramme"};
+    String CodeList[] = {"AtBash", "César", "Vigenère", "Hill", "Parallélogramme"};
 
 
     @Override
@@ -34,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Listcrypto = (ListView)findViewById(R.id.ListCrypto);
+        Clef = (TextView)findViewById(R.id.Clef);
         ArrayAdapter<String> CodeAdadapter = new ArrayAdapter<String>(this,R.layout.activity_list_view,R.id.textView, CodeList);
         Listcrypto.setAdapter(CodeAdadapter);
         Listcrypto.setOnItemClickListener(new AdapterView.OnItemClickListener(){
@@ -50,9 +54,28 @@ public class MainActivity extends AppCompatActivity {
                     case "Parallélogramme":
                         ParalléloCode();
                         break;
-                    /*case "ReverseParallélogramme" :
-                        ReverseParalléloCode();
-                        break;*/
+                    case "AtBash":
+                        String a = atbash.crypt(MesACoder.getText().toString());
+                        System.out.println(MesACoder.toString());
+                        Resultat.setText("MesCoder avec AtBash : " + a);
+                        System.out.println(Resultat.getText().toString());
+                        break;
+                    case "César":
+                        String c = cesar.crypt(MesACoder.getText().toString(),Integer.parseInt(Clef.getText().toString()));
+                        Resultat.setText("MesCoder en césar avec une clef de " + Integer.parseInt(Clef.getText().toString()) + " est : " + c);
+                        System.out.println(Resultat.getText().toString());
+                        break;
+                    case "Vigenère":
+                        String v = vigenere.crypt(MesACoder.getText().toString(),Clef.getText().toString());
+                        Resultat.setText("MesCoder avec Vigenère avec la clef " + Clef.getText().toString() + " est : " + v);
+                        System.out.println(Resultat.getText().toString());
+                        break;
+                    case "Hill":
+                        String clef = Clef.getText().toString();
+                        String h = hill.crypt(MesACoder.getText().toString(),2, clef.charAt(0), clef.charAt(1), clef.charAt(2), clef.charAt(3));
+                        Resultat.setText("MesCoder avec Hill avec la clef " + Clef.getText().toString() + " et m = 2 donne : " + h);
+                        System.out.println(Resultat.getText().toString());
+                        break;
                     default:
                         System.out.println("Waiting for code..");
                 }
@@ -61,14 +84,6 @@ public class MainActivity extends AppCompatActivity {
 
         MesACoder = (TextView)findViewById(R.id.MesACoder);
         Resultat = (TextView)findViewById(R.id.Coder);
-        Clef = (TextView)findViewById(R.id.Clef);
-        /*AtBashBut = (Button)findViewById(R.id.AtbashButton);
-        CésarBut = (Button)findViewById(R.id.CésarButton);
-        VigenèreBut = (Button)findViewById(R.id.VigenèreButton);
-        PolybeBut = (Button)findViewById(R.id.PolybeButton);
-        PlayfairBut = (Button)findViewById(R.id.PlayfairButton);
-        HillBut = (Button)findViewById(R.id.HillButton);
-        ParalléloBut = (Button)findViewById(R.id.ParalléloButton);*/
     }
 
 

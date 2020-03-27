@@ -37,7 +37,7 @@
         android:layout_height="52dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Clef"
+        android:text="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -1,4 +1,4 @@
-
+package com.example.tp_scurit_info;
 public class Atbash {
 
 	public Atbash() {
@@ -11,14 +11,14 @@ public class Atbash {
 		for (int i = 0; i < message.length(); i++) {
 			char current_letter = message.charAt(i);
 			
-			// On récupère le caractère courant
+			// On rï¿½cupï¿½re le caractï¿½re courant
 			int position = ExtendedAscii.getChar(current_letter, 0);
 			
-			// On va chercher son opposé dans la table ASCII
+			// On va chercher son opposï¿½ dans la table ASCII
 			int opposite = 256 - position;
 			//System.out.println("Opposite: " + opposite + " | " + (char)opposite);
 			
-			// Et selon si c'est un caractère spécial, on affiche sa valeur hexadécimal ou le caractère directement:
+			// Et selon si c'est un caractï¿½re spï¿½cial, on affiche sa valeur hexadï¿½cimal ou le caractï¿½re directement:
 			if (ExtendedAscii.isSpecialCharacter(opposite))
 				final_message += ExtendedAscii.getHex(opposite);
 			else
