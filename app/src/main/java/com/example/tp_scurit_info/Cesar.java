@@ -5,7 +5,7 @@ public class Cesar {
 		
 	}
 	
-	public String crypt(String message, int offset) {
+	private String crypt(String message, int offset) {
 		String message_final = "";
 
 		for(int i = 0; i < message.length(); i++)
@@ -24,7 +24,31 @@ public class Cesar {
 		return message_final;
 	}
 	
-	public String decrypt(String message, int offset) {
+	public String crypt(String message, int offset, boolean useAlphabet) {
+		String message_final = "";
+
+		if (useAlphabet) {
+			
+			message = message.toUpperCase();
+			
+			for(int i = 0; i < message.length(); i++)
+			{
+				if (Alphabet.isSymbole(message.charAt(i))) 
+					message_final += message.charAt(i);
+				
+				else {
+					char next = Alphabet.add(Alphabet.getLetter((int)message.charAt(i)), offset);
+					message_final += next;
+				}
+			}
+
+			return message_final;
+		}
+		
+		return crypt(message,offset);
+	}
+	
+	private String decrypt(String message, int offset) {
 		String message_final = "";
 
 		for(int i = 0; i < message.length(); i++)
@@ -39,6 +63,27 @@ public class Cesar {
 		}
 
 		return message_final;
+	}
+	
+	public String decrypt(String message, int offset, boolean useAlphabet) {
+		String message_final = "";
+		
+		if (useAlphabet) {
+			message = message.toUpperCase();
+			
+			for(int i = 0; i < message.length(); i++)
+			{
+				if (Alphabet.isSymbole(message.charAt(i))) 
+					message_final += message.charAt(i);
+				
+				else {
+					char next = Alphabet.substract(Alphabet.getLetter((int)message.charAt(i)), offset);
+					message_final += next;
+				}
+			}
+		}
+		
+		return decrypt(message,offset);
 	}
 	
 }

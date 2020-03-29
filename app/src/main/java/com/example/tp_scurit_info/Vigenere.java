@@ -1,4 +1,4 @@
-package com.example.tp_scurit_info;
+
 public class Vigenere {
 
 	public Vigenere() {
@@ -30,7 +30,7 @@ public class Vigenere {
 		return final_message;
 	}
 	
-	public String crypt(String message, String cle) {
+	private String crypt(String message, String cle) {
 		
 		String final_message = "";
 		String final_cle = createKey(message,cle);
@@ -50,21 +50,76 @@ public class Vigenere {
 		
 	}
 	
-	public String decrypt(String message, String cle) {
-			
-			String final_message = "";
+	public String crypt(String message, String cle, boolean useAlphabet) {
+		String final_message = "";
+		
+		if (useAlphabet) {
+			message = message.toUpperCase();
 			String final_cle = createKey(message,cle);
+			final_cle = final_cle.toUpperCase();
 			
 			for (int i = 0; i < message.length(); i++) {
 				
-				int letter_decale = ((int)message.charAt(i) - (int)final_cle.charAt(i));			
+				int current_letter = Alphabet.getPosition(message.charAt(i));
+				int cle_letter = Alphabet.getPosition(final_cle.charAt(i));
 				
-				final_message += ExtendedAscii.getString(letter_decale);
-				
+				char letter_decale = (char)(current_letter + cle_letter);
+
+				if (Alphabet.isSymbole((message.charAt(i))))
+					final_message += message.charAt(i);
+				else
+					final_message +=Alphabet.getLetter(letter_decale);
 			}
 			
 			return final_message;
+		}
+		
+		return crypt(message,cle);
+	}
+	
+	private String decrypt(String message, String cle) {
+		String final_message = "";
+		String final_cle = createKey(message,cle);
+		
+		for (int i = 0; i < message.length(); i++) {
+			
+			int letter_decale = ((int)message.charAt(i) - (int)final_cle.charAt(i));			
+			
+			final_message += ExtendedAscii.getString(letter_decale);
 			
 		}
+		
+		return final_message;
+		
+	}
+	
+	public String decrypt(String message, String cle, boolean useAlphabet) {
+		
+		String final_message = "";
+		
+		if (useAlphabet) {
+			message = message.toUpperCase();
+			String final_cle = createKey(message,cle);
+			final_cle = final_cle.toUpperCase();
+			
+			for (int i = 0; i < message.length(); i++) {
+				
+				int current_letter = Alphabet.getPosition(message.charAt(i));
+				int cle_letter = Alphabet.getPosition(final_cle.charAt(i));
+				
+				char letter_decale = (char)(current_letter - cle_letter);
+				
+				if (Alphabet.isSymbole((message.charAt(i))))
+					final_message += message.charAt(i);
+				else
+					final_message +=Alphabet.getLetter(letter_decale);
+			}
+			
+			return final_message;
+		}
+		
+		return decrypt(message,cle);
+		
+	}
 	
 }
