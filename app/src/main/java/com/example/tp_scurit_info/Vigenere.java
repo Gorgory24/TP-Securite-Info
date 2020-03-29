@@ -84,7 +84,6 @@ public class Vigenere {
 		for (int i = 0; i < message.length(); i++) {
 			
 			int letter_decale = ((int)message.charAt(i) - (int)final_cle.charAt(i));			
-			
 			final_message += ExtendedAscii.getString(letter_decale);
 			
 		}
@@ -107,12 +106,15 @@ public class Vigenere {
 				int current_letter = Alphabet.getPosition(message.charAt(i));
 				int cle_letter = Alphabet.getPosition(final_cle.charAt(i));
 				
-				char letter_decale = (char)(current_letter - cle_letter);
+				int letter_decale = (int)((current_letter - cle_letter)%26);
+				
+				if (letter_decale < 0)
+					letter_decale += 26;
 				
 				if (Alphabet.isSymbole((message.charAt(i))))
 					final_message += message.charAt(i);
 				else
-					final_message +=Alphabet.getLetter(letter_decale);
+					final_message += Alphabet.getLetter(letter_decale);
 			}
 			
 			return final_message;
