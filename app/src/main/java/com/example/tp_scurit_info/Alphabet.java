@@ -1,4 +1,4 @@
-
+package com.example.tp_scurit_info;
 public class Alphabet {
 
 	public static final String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";

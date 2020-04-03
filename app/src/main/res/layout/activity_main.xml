@@ -13,10 +13,8 @@
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Clef"
-        app:layout_constraintVertical_bias="0.27" />
+        app:layout_constraintTop_toBottomOf="@+id/Alphab" />
 
     <EditText
         android:id="@+id/MesACoder"
@@ -40,9 +38,10 @@
         android:text="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.46"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ListCrypto"
-        app:layout_constraintVertical_bias="0.12" />
+        app:layout_constraintVertical_bias="0.09" />
 
     <ListView
         android:id="@+id/ListCrypto"
@@ -57,5 +56,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/MesACoder"
         app:layout_constraintVertical_bias="0.055" />
+
+    <Switch
+        android:id="@+id/CryptOrDecrypt"
+        android:layout_width="96dp"
+        android:layout_height="37dp"
+        android:text="Decrypt"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Clef"
+        app:layout_constraintVertical_bias="0.105" />
+
+    <Switch
+        android:id="@+id/Alphab"
+        android:layout_width="93dp"
+        android:layout_height="41dp"
+        android:text="Ascii"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CryptOrDecrypt"
+        app:layout_constraintVertical_bias="0.043" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
